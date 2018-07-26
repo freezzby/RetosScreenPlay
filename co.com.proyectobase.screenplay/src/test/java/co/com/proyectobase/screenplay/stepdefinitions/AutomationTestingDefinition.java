@@ -5,9 +5,12 @@ import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 
+import com.retos.screenplay.automationTesting.tasks.SelectDate;
+import com.retos.screenplay.automationTesting.tasks.SelectFirstCountry;
 import com.retos.screenplay.automationTesting.tasks.SelectGender;
 import com.retos.screenplay.automationTesting.tasks.SelectHobbies;
 import com.retos.screenplay.automationTesting.tasks.SelectLanguages;
+import com.retos.screenplay.automationTesting.tasks.SelectSecondCountry;
 import com.retos.screenplay.automationTesting.tasks.SelectSkills;
 import com.retos.screenplay.automationTesting.ui.AutomationSiteRegisterPage;
 
@@ -61,6 +64,10 @@ public class AutomationTestingDefinition {
 		carlos.attemptsTo(SelectHobbies.fromThe(registerData.get("Hobbies")));
 		carlos.attemptsTo(SelectLanguages.fromThe(registerData.get("Languages")));
 		carlos.attemptsTo(SelectSkills.fromThe(registerData.get("Skills")));
+		carlos.attemptsTo(SelectFirstCountry.fromThe(registerData.get("FirstCountry")));
+		carlos.attemptsTo(SelectSecondCountry.fromThe(registerData.get("SecondCountry")));
+		
+		carlos.attemptsTo(SelectDate.year(registerData.get("Year")).fromThe(AutomationSiteRegisterPage.YEAR_DROPDOWN_BUTTON));
 	}
 
 	@Then("^he verifies that the screen loads with text Double Click on Edit Icon to EDIT the Table Row$")

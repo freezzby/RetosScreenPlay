@@ -10,21 +10,20 @@ import net.serenitybdd.screenplay.actions.Click;
 
 public class SelectSkills implements Task {
 	String skill;
-	
+
 	public SelectSkills(String skill) {
-		this.skill=skill;
+		this.skill = skill;
 	}
 
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		actor.attemptsTo(Click.on(AutomationSiteRegisterPage.SKILL_DROPDOWN_BUTTON));
 		AutomationSiteRegisterPage.HOBBIES_LIST.resolveFor(actor)
-		.find(By.xpath("//option[text() ='"+skill + "']")).click();		
-		
+		.find(By.xpath("//option[text() ='" + skill + "']")).click();
+
 	}
 
 	public static SelectSkills fromThe(String skill) {
-		// TODO Auto-generated method stub
 		return Tasks.instrumented(SelectSkills.class, skill);
 	}
 
