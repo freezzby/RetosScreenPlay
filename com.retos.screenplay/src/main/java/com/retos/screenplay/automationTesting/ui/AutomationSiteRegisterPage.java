@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.screenplay.targets.Target;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.apache.tools.ant.taskdefs.Tar;
 
 @DefaultUrl("http://demo.automationtesting.in/Register.html")
 public class AutomationSiteRegisterPage extends PageObject {
@@ -62,11 +63,20 @@ public class AutomationSiteRegisterPage extends PageObject {
 
 
     public static final Target MONTH_DROPDOWN_BUTTON =
-            Target.the("Button to drop down the list of years").located(By.xpath("//select[@ng-model='monthbox'"));
+            Target.the("Button to drop down the list of months").located(By.xpath("//select[@ng-model='monthbox']"));
 
     public static final Target DAY_DROPDOWN_BUTTON =
-            Target.the("Button to drop down the list of years").located(By.id("yearbox"));
+            Target.the("Button to drop down the list of days").located(By.id("daybox"));
 
+    public static final Target PASSWORD_FIELD =
+            Target.the("Field to input the password").located(By.id("firstpassword"));
+
+    public static final Target CONFIRM_PASSWORD_FIELD =
+            Target.the("Field to confim the password").located(By.id("secondpassword"));
+
+
+    public static final Target SUBMIT_BUTTON =
+            Target.the("Button to submit the register application").located(By.id("submitbtn"));
 
     public static AutomationSiteRegisterPage webSite()
 	{

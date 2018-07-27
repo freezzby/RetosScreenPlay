@@ -22,7 +22,7 @@ public class SelectDate implements Task {
 	public <T extends Actor> void performAs(T actor) {
 		actor.attemptsTo(Click.on(target));
 		target.resolveFor(actor)
-				.find(By.xpath("/option[contains(text(),'" + date + "')]")).click();
+				.findElement(By.xpath("//option[@value='" + date + "']")).click();
 	}
 
 	public static SelectDate year(String date) {

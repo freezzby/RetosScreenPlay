@@ -3,6 +3,7 @@ package com.retos.screenplay.runners.stepdefinitions;
 
 import java.util.Map;
 
+import com.retos.screenplay.automationTesting.questions.TheEditInstruction;
 import org.openqa.selenium.WebDriver;
 
 import com.retos.screenplay.automationTesting.tasks.SelectDate;
@@ -70,11 +71,13 @@ public class AutomationTestingDefinition {
 		carlos.attemptsTo(SelectDate.year(registerData.get("BirthYear")).fromThe(AutomationSiteRegisterPage.YEAR_DROPDOWN_BUTTON));
 		carlos.attemptsTo(SelectDate.year(registerData.get("BirthMonth")).fromThe(AutomationSiteRegisterPage.MONTH_DROPDOWN_BUTTON));
 		carlos.attemptsTo(SelectDate.year(registerData.get("BirthDay")).fromThe(AutomationSiteRegisterPage.DAY_DROPDOWN_BUTTON));
+		carlos.attemptsTo(Enter.theValue(registerData.get("Password")).into(AutomationSiteRegisterPage.PASSWORD_FIELD));
+		carlos.attemptsTo(Enter.theValue(registerData.get("Password")).into(AutomationSiteRegisterPage.CONFIRM_PASSWORD_FIELD));
+        carlos.attemptsTo(Click.on(AutomationSiteRegisterPage.SUBMIT_BUTTON));
 	}
 
 	@Then("^he verifies that the screen loads with text Double Click on Edit Icon to EDIT the Table Row$")
 	public void heVerifiesThatTheScreenLoadsWithTextDoubleClickOnEditIconToEDITTheTableRow() throws Exception {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	  carlos.should(seeThat(TheEditInstruction.isVisible()));
 	}
 }
