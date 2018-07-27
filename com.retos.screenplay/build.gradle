@@ -1,0 +1,37 @@
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:1.9.31")
+    }
+}
+
+ext {
+    serenityVersion = "1.9.31"
+    serenityCucumberVersion = "1.9.12"
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+dependencies {
+    implementation("junit:junit:4.12")
+    implementation("org.assertj:assertj-core:1.7.0")
+    implementation("org.slf4j:slf4j-simple:1.7.7")
+    
+    implementation "net.serenity-bdd:serenity-core:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
+
+}
+gradle.startParameter.continueOnFailure = true
