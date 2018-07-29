@@ -22,7 +22,7 @@ public class TraductorGoogleDefinition {
 	@Managed(driver="chrome")
 	private WebDriver hisBrowser;
 	
-	private Actor rafa = Actor.named("Rafa");
+	private final Actor rafa = Actor.named("Rafa");
 	
 	
 	@Before
@@ -33,18 +33,18 @@ public class TraductorGoogleDefinition {
 	
 	
 	@Given("^that Raga wants to use Google Translate$")
-	public void thatRagaWantsToUseGoogleTranslate() throws Exception {
+	public void thatRagaWantsToUseGoogleTranslate() {
 		rafa.wasAbleTo(Abrir.LaPaginaDeGoogle());
 	}
 
 
 	@When("^he translates the word (.*) from english to spanish$")
-	public void heTranslatesTheWordTableFromEnglishToSpanish(String palabra) throws Exception {
+	public void heTranslatesTheWordTableFromEnglishToSpanish(String palabra) {
 	   rafa.attemptsTo(Traducir.DeInglesAEspanolLa(palabra));
 	}
 
 	@Then("^he should se the word (.*) on the screen$")
-	public void heShouldSeTheWordMesaOnTheScreen(String palabraEsperada) throws Exception {
+	public void heShouldSeTheWordMesaOnTheScreen(String palabraEsperada) {
 		rafa.should(seeThat(LaRespuesta.es(), equalTo(palabraEsperada)));
 	}
 

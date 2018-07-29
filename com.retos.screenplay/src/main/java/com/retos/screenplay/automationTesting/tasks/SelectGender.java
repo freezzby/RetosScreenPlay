@@ -9,9 +9,9 @@ import net.serenitybdd.screenplay.Tasks;
 
 public class SelectGender implements Task {
 
-	String gender;
+	private final String gender;
 
-	public SelectGender(String gender) {
+	SelectGender(String gender) {
 		this.gender = gender;
 	}
 

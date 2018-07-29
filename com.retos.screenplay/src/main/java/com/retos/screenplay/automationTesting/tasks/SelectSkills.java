@@ -9,9 +9,9 @@ import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
 public class SelectSkills implements Task {
-	String skill;
+	private final String skill;
 
-	public SelectSkills(String skill) {
+	SelectSkills(String skill) {
 		this.skill = skill;
 	}
 

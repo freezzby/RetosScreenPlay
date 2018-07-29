@@ -9,19 +9,19 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 
 public class SelectHobbies implements Task {
-	String hobbies;
+	private final String hobbies;
 
-	public SelectHobbies(String hobbies) {
+	SelectHobbies(String hobbies) {
 		this.hobbies = hobbies;
 	}
 
 	@Override
 	public <T extends Actor> void performAs(T actor) {
 		String[] lstHobbies = hobbies.split(",");
-		
-		for (int i = 0; i < lstHobbies.length; i++) {
+
+		for (String lstHobby : lstHobbies) {
 			AutomationSiteRegisterPage.HOBBIES_LIST.resolveFor(actor)
-			.find(By.xpath("//input[contains(@value,'" + lstHobbies[i] + "')]")).click();
+					.find(By.xpath("//input[contains(@value,'" + lstHobby + "')]")).click();
 		}
 		
 	}

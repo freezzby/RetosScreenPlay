@@ -10,9 +10,9 @@ import net.serenitybdd.screenplay.actions.Click;
 
 public class SelectLanguages implements Task {
 	
-	String languages;
+	private final String languages;
 	
-	public SelectLanguages(String languages) {
+	SelectLanguages(String languages) {
 		this.languages=languages;
 	}
 
@@ -20,11 +20,11 @@ public class SelectLanguages implements Task {
 	public <T extends Actor> void performAs(T actor) {
 		
 		String[] lstLanguages = languages.split(",");
-		
-		for (int i = 0; i < lstLanguages.length; i++) {
+
+		for (String lstLanguage : lstLanguages) {
 			actor.attemptsTo(Click.on(AutomationSiteRegisterPage.LANGUAGES_DROPDOWN_BUTTON));
 			AutomationSiteRegisterPage.LANGUAGES_LIST.resolveFor(actor)
-			.find(By.xpath("//a[contains(text(),'" + lstLanguages[i] + "')]")).click();
+					.find(By.xpath("//a[contains(text(),'" + lstLanguage + "')]")).click();
 		}
 		actor.attemptsTo(Click.on(AutomationSiteRegisterPage.PHONE_FIELD));
 	}

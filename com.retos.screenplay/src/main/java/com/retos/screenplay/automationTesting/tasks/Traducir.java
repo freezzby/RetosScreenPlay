@@ -11,9 +11,9 @@ import com.retos.screenplay.traductorGoogle.ui.*;
 
 public class Traducir implements Task {
 
-	private String palabra;
+	private final String palabra;
 	
-	public Traducir(String palabra) {
+	Traducir(String palabra) {
 		super();
 		this.palabra = palabra;
 	}

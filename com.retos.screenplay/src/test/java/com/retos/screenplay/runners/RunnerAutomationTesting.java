@@ -10,6 +10,6 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @CucumberOptions(
 		features="src/test/resources/features/automationTesting.feature",
 		snippets=SnippetType.CAMELCASE)
-public class RunnerTags {
+public class RunnerAutomationTesting {
 
 }

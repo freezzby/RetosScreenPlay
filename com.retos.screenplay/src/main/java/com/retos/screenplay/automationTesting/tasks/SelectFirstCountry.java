@@ -10,9 +10,9 @@ import net.serenitybdd.screenplay.actions.Click;
 
 public class SelectFirstCountry implements Task {
 
-	String country;
+	private final String country;
 
-	public SelectFirstCountry(String country) {
+	SelectFirstCountry(String country) {
 		this.country = country;
 	}
 
