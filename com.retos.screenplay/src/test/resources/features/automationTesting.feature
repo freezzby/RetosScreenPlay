@@ -4,7 +4,7 @@ Feature: First ScreenPlay challenge
 
 
   @Register
-  Scenario Outline: Register on the Automation Demo Site
+  Scenario Outline: Register on Automation test site
     Given that Carlos wants to access the Web Automation Demo Site
     When he registers in the site
     |	FirstName		|	LastName	|	Address		|	Email	|	Phone		|	Gender		|	Hobbies		|	Languages		|	Skills		| FirstCountry 	| SecondCountry	    |	BirthYear	|	BirthMonth	    |	BirthDay	|	Password	|

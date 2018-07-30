@@ -6,7 +6,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.SnippetType;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 
-@RunWith(CucumberWithSerenity.class)
+@RunWith(RunnerPersonalizado.class)
 @CucumberOptions(
 		features="src/test/resources/features/automationTesting.feature",
 		snippets=SnippetType.CAMELCASE)
