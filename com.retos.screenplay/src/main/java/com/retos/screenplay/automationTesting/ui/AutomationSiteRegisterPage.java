@@ -38,18 +38,12 @@ public class AutomationSiteRegisterPage extends PageObject {
 
 	public static final Target SKILL_DROPDOWN_BUTTON = 
 			Target.the("Button to drop down the list of skills").located(By.id("Skills"));
-	
-	public static final Target SKILLS_LIST = 
-			Target.the("Button to drop down the list of skills").located(By.xpath("//select[@id = 'Skills']/option"));
-	
-	public static final Target FIRST_COUNTRY_DROPDOWN_BUTTON = 
+
+	public static final Target FIRST_COUNTRY_DROPDOWN_BUTTON =
 	Target.the("Button to drop down the list of the first country").located(By.id("countries"));
-	
-	public static final Target FIRST_COUNTRY_LIST = 
-			Target.the("List of the first country").located(By.xpath("//select[@id='countries']/option"));
-	
-	
-	public static final Target SECOND_COUNTRY_DROPDOWN_BUTTON = 
+
+
+    public static final Target SECOND_COUNTRY_DROPDOWN_BUTTON =
 			Target.the("Button to drop down the list of the second country").located(By.xpath("//span[@class = 'select2-selection select2-selection--single']"));
 	
 	public static final Target SECOND_COUNTRY_LIST = 
