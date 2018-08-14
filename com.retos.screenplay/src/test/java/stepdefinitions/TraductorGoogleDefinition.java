@@ -1,4 +1,4 @@
-package com.retos.screenplay.runners.stepdefinitions;
+package stepdefinitions;
 
 import static org.hamcrest.Matchers.equalTo;
 import org.openqa.selenium.WebDriver;

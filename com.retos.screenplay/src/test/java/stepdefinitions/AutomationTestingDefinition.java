@@ -1,4 +1,4 @@
-package com.retos.screenplay.runners.stepdefinitions;
+package stepdefinitions;
 
 
 import com.retos.screenplay.automationTesting.questions.TheEditInstruction;
