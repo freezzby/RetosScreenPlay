@@ -1,18 +1,29 @@
 package stepdefinitions;
 
+import com.retos.screenplay.OrangeHRM.questions.TheID;
 import com.retos.screenplay.OrangeHRM.tasks.*;
+import com.retos.screenplay.OrangeHRM.ui.OrangeHRMEmployeeList;
 import com.retos.screenplay.OrangeHRM.ui.OrangeHRMLoginPage;
 import com.retos.screenplay.OrangeHRM.ui.OrangeHRMMenuPage;
 import cucumber.api.DataTable;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.matchers.WebElementStateMatchers;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Managed;
+import org.hamcrest.Matcher;
+import org.hamcrest.core.IsEqual;
 import org.openqa.selenium.WebDriver;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.core.IsEqual.*;
 
 public class OrangeHRMDefinition {
 
@@ -33,7 +44,7 @@ public class OrangeHRMDefinition {
         juan.wasAbleTo(Open.browserOn(OrangeHRMLoginPage.webSite()));
     }
 
-    @Then("^he registers an employee on orangeHR$")
+    @When("^he registers an employee on orangeHR$")
     public void heRegistersAnEmployeeOnOrangeHR(DataTable data) throws Throwable {
         Serenity.getCurrentSession().put("Data", data.asMaps(String.class, String.class).get(0));
 
@@ -43,14 +54,17 @@ public class OrangeHRMDefinition {
                 EnterTo.theMenu(OrangeHRMMenuPage.PIM_MENU),
                 EnterTo.theMenu(OrangeHRMMenuPage.ADD_EMPLOYEE_MENU),
                 Register.employee(),
-                Edit.personalDetails()
+                Edit.personalDetails(),
+
+                Find.employee()
         );
 
     }
 
     @Then("^he sees the new employee on orangeHR$")
     public void heSeesTheNewEmployeeOnOrangeHR() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-//        throw new PendingException();
+        juan.should(seeThat(TheID.ofTheEmployee(),
+                equalTo(juan.recall("EmployeeID"))));
+
     }
 }

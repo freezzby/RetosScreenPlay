@@ -8,9 +8,10 @@ public class OrangeHRMRegisterEmployeePage extends PageObject {
 
     public static Target FIRST_NAME_FIELD = Target.the("The field to input the first name").located(By.id("firstName"));
     public static Target MIDDLE_NAME_FIELD = Target.the("The field to input the middle name").located(By.id("middleName"));
+
     public static Target LAST_NAME_FIELD = Target.the("The field to input the last name").located(By.id("lastName"));
 
-
+    public static Target EMPLOYEE_ID_FIELD= Target.the("The field to check the employee id").located(By.id("employeeId"));
 
 
 
